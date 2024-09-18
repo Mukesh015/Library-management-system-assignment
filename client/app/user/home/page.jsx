@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 
 const HomePage = () => {
   return (
@@ -8,9 +11,11 @@ const HomePage = () => {
           <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
             Report
           </li>
-          <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
-            Transaction
-          </li>
+          <Link href="/transaction/checkbookavailability">
+            <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
+              Transaction
+            </li>
+          </Link>
           <li className="text-white font-semibold cursor-pointer hover:text-red-950">
             Logout
           </li>

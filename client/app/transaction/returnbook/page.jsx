@@ -83,7 +83,7 @@ export default function ReturnBook() {
             }
           >
             <option value="">-- Select a book --</option>
-            {books.map((book) => (
+            {books?.map((book) => (
               <option key={book.serialNumber} value={book.serialNumber}>
                 {book.bookName} (Issued: {book.issueDate})
               </option>

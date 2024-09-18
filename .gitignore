@@ -37,4 +37,4 @@ next-env.d.ts
 
 /sampleCredtials.txt
 /server/node_modules/
-/server/config.env
+/server/.env

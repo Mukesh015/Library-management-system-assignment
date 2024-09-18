@@ -26,17 +26,24 @@ const userSchema = new mongoose.Schema({
     },
     issueDate: {
       type: Date,
-      required: true
+      required: true,
+      default: Date.now()
     },
     returnDate: {
       type: Date,
-      required: true
+      required: true,
+      default: () => {
+        const today = new Date();
+        today.setDate(today.getDate() + 7);
+        return today;
+      }
+
     },
     remarks: {
       type: String,
       default: null
     },
-    serialNumber:{
+    serialNumber: {
       type: String,
       required: true
     }
