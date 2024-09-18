@@ -26,6 +26,29 @@ const addBook = async (req, res) => {
   }
 };
 
+
+
+const findBooks = async (req, res) => {
+    try {
+     
+  
+  
+      const books = await Book.find({});
+  
+
+      const response = books.map(book => ({
+        serialNumber: book.serialNumber,
+        bookName: book.bookName,
+        authorName: book.authorName || "Not provided",
+        availableQuantity: book.quantity > 0 ? 'Y' : 'N'
+      }));
+  
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to retrieve books.' });
+    }
+  };
+
 module.exports = {
-  addBook
+  addBook,findBooks
 };
