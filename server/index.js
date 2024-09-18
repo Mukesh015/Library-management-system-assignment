@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const router = require("./router/admin");
 const userRouter=require("./router/user");
 const bookRouter=require("./router/book");
+const bookIssueRouter=require("./router/bookissue");
+
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -31,6 +33,7 @@ mongoose
 app.use("/", router);
 app.use("/user", userRouter);
 app.use("/book", bookRouter);
+app.use("/bookop", bookIssueRouter);
 
 
 app.listen(PORT, () => {
