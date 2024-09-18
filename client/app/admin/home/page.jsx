@@ -13,9 +13,11 @@ const HomePage = () => {
     <>
       <nav className="bg-rose-700 px-80 py-3">
         <ul className="flex flex-row justify-between">
-          <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
-            Maintainence
-          </li>
+          <Link href="/admin/maintainence">
+            <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
+              Maintainence
+            </li>
+          </Link>
           <li className="text-white font-semibold cursor-pointer hover:text-slate-200">
             Report
           </li>
