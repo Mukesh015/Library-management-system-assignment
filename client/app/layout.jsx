@@ -1,8 +1,6 @@
-
-
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-
+import { UserProvider } from "@/provider/UserContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <UserProvider>{children}</UserProvider>
+      </body>
     </html>
   );
 }

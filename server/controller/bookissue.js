@@ -56,10 +56,11 @@ const issueBook = async (req, res) => {
 
 const returnBook = async (req, res) => {
   try {
-      const { userId, bookName, serialNumber, authorName, issueDate, returnDate, remarks } = req.body;
+      const { userId, bookName, serialNumber} = req.body;
 
  
-      if (!userId || !bookName || !serialNumber || !issueDate || !returnDate) {
+      if (!userId || !bookName || !serialNumber) {
+      if (!userId || !bookName || !serialNumber) {
           return res.status(400).json({ error: 'User ID, Book Name, Serial Number, Issue Date, and Return Date are required.' });
       }
 

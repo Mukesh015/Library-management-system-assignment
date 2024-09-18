@@ -2,9 +2,11 @@
 import { redirect, useRouter } from "next/navigation";
 import react, { useState, useCallback } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { useUser } from "@/provider/UserContext";
 
 export default function Home() {
   const router = useRouter();
+  const { userID, setUserID } = useUser();
   const [isUserLogin, setIsUserLogin] = useState(true);
   const [userId, setUserId] = useState(null);
   const [password, setPassword] = useState(null);
@@ -44,13 +46,13 @@ export default function Home() {
         if (response.ok) {
           const data = await response.json();
           console.log(data);
-
+          setUserID(data)
           toast.success(`${isUserLogin ? "User" : "Admin"} login successful`, {
             position: "top-center",
             autoClose: 2000,
             theme: "dark",
           });
-          router.push(redirectPath)
+          router.push(redirectPath);
         } else {
           toast.error("Incorrect login credentials", {
             position: "top-center",
