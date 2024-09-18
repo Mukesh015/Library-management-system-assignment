@@ -4,10 +4,10 @@ const User = require('../model/user');
 // Controller for issuing a book
 const issueBook = async (req, res) => {
   try {
-    const { userId, bookName, authorName, issueDate, returnDate, remarks } = req.body;
+    const { userId, bookName, authorName, remarks } = req.body;
   
 
-    if (!userId || !bookName || !issueDate || !returnDate) {
+    if (!userId || !bookName ) {
       return res.status(400).json({ error: 'User ID, Book Name, Issue Date, and Return Date are required.' });
     }
 
@@ -18,23 +18,23 @@ const issueBook = async (req, res) => {
       return res.status(404).json({ error: 'Book not found.' });
     }
 
-    // Check if quantity is available
+
     if (book.quantity <= 0) {
       return res.status(400).json({ error: 'Book is not available.' });
     }
 
-    // Reduce quantity by 1
+
     book.quantity -= 1;
     await book.save();
 
-    // Find the user and update the issuedBooks array
+
     let user = await User.findOne({ userId });
 
     if (!user) {
       return res.status(404).json({ error: 'User not found.' });
     }
 
-    // Add new issuance record to the issuedBooks array
+   
     user.issuedBooks.push({
       bookName,
       serialNumber:book.serialNumber,
@@ -56,10 +56,10 @@ const issueBook = async (req, res) => {
 
 const returnBook = async (req, res) => {
   try {
-      const { userId, bookName, serialNumber, authorName, issueDate, returnDate, remarks } = req.body;
+      const { userId, bookName, serialNumber,  } = req.body;
 
  
-      if (!userId || !bookName || !serialNumber || !issueDate || !returnDate) {
+      if (!userId || !bookName || !serialNumber ) {
           return res.status(400).json({ error: 'User ID, Book Name, Serial Number, Issue Date, and Return Date are required.' });
       }
 

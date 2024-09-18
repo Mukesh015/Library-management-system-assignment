@@ -2,7 +2,6 @@ const bcrypt = require('bcrypt');
 const Admin = require('../model/admin'); 
 const { v4: uuidv4 } = require('uuid');
 const crypto = require('crypto');
-
 const User = require('../model/user');
 
 

@@ -10,7 +10,7 @@ const bookIssueRouter=require("./router/bookissue");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: "./.env" });
 
 const app = express();
 const PORT = process.env.PORT;
